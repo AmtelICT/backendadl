@@ -217,7 +217,7 @@ const router = express.Router();
 
 
 const storage = multer.memoryStorage();
-const upload = multer({ storage: storage,  limits: { fileSize: 50 * 1024 * 1024 } });
+const upload = multer({ storage: storage,  });
 
 // Route for video and banner image upload
 router.post('/upload', upload.fields([{ name: 'video' }, { name: 'bannerImage' }]), async (req, res) => {
@@ -262,6 +262,7 @@ router.post('/upload', upload.fields([{ name: 'video' }, { name: 'bannerImage' }
             const newVideo = new Video({
               title: req.body.title,
               description: req.body.description,
+              category:req.body.category,
               author: req.body.author,
               videoUrl: videoResult.secure_url,  // Correct video URL
               bannerImage: bannerResult.secure_url,  // Correct banner image URL
