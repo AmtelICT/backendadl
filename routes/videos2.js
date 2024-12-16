@@ -3,6 +3,7 @@ const multer = require('multer');
 const Video = require('../models/video'); // Import your Video schema
 const router = express.Router();
 const path = require('path');
+const Students = require('../models/students');
 
 //edited
 // const upload = multer({ dest: 'uploads/' }); // Store files in `uploads/` folder
